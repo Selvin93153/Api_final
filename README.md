@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# Mayen API
+# API GYMNASIO CON MANEJO DE MEMBRESIAS
 
 1. Clonar proyecto
 2. Instalar las dependencias
@@ -17,4 +17,4 @@
 6. Ejecutar en modo de desarrollo:
    `yarn start:dev`
    ó
-   `npm run start:dev`
+   `npm run start:dev` 
