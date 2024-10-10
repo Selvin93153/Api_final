@@ -1,5 +1,7 @@
 import { Entrenador } from 'src/entrenadores/entities/entrenador.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Rol } from 'src/roles/entities/roles.entity';  // Asegúrate de importar la entidad Rol
+import { Membresia } from 'src/membresias/entities/membresia.entity'; // Importa Membresia también
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('usuarios')
 export class Usuario {
@@ -21,8 +23,15 @@ export class Usuario {
     @Column({ type: 'varchar', length: 15, nullable: true })
     telefono?: string;
 
-    @Column({ type: 'int', nullable: true })
-    rol_id?: number;  // Asumiendo que es un ID de rol
+    // Relación con la tabla de roles
+    @ManyToOne(() => Rol, { nullable: false }) 
+    @JoinColumn({ name: 'rol_id' })
+    rol: Rol;
+
+    // Relación con la tabla de membresías
+    @ManyToOne(() => Membresia, { nullable: true })
+    @JoinColumn({ name: 'membresia_id' })
+    membresia: Membresia;
 
     @OneToMany(() => Entrenador, (entrenador) => entrenador.usuario)
     entrenadores: Entrenador[];

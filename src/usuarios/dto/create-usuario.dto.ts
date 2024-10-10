@@ -4,7 +4,8 @@ import {
     IsOptional,
     IsString,
     IsNotEmpty,
-    MinLength
+    MinLength,
+    IsInt
 } from 'class-validator';
 
 export class CreateUsuarioDto {
@@ -27,7 +28,11 @@ export class CreateUsuarioDto {
     @IsOptional()
     telefono?: string;
 
-    @IsString()
+    @IsInt()
     @IsNotEmpty()
-    rol_id: number;  // Asumiendo que es un ID de rol
+    rol_id: number;  
+    
+    @IsInt()
+    @IsOptional()
+    membresia_id?: number;// Asumiendo que es un ID de rol
 }
