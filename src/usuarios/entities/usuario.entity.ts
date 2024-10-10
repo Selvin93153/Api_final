@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Entrenador } from 'src/entrenadores/entities/entrenador.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('usuarios')
 export class Usuario {
@@ -22,6 +23,9 @@ export class Usuario {
 
     @Column({ type: 'int', nullable: true })
     rol_id?: number;  // Asumiendo que es un ID de rol
+
+    @OneToMany(() => Entrenador, (entrenador) => entrenador.usuario)
+    entrenadores: Entrenador[];
 
     // Otros campos pueden ir aquí según sea necesario
 }
