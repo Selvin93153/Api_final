@@ -1,16 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
-import { Usuario } from '../../usuarios/entities/usuario.entity'; // Asegúrate de tener la ruta correcta
+import { Usuario } from 'src/usuarios/entities/usuario.entity';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('entrenadores')
 export class Entrenador {
     @PrimaryGeneratedColumn()
     entrenador_id: number;
 
-    @Column()
-    usuario_id: number;
-
-    @ManyToOne(() => Usuario, (usuario) => usuario.entrenadores, { eager: true })
-    @JoinColumn({ name: 'usuario_id' })
+    @ManyToOne(() => Usuario, { nullable: false })
+    @JoinColumn({ name: 'usuario_id' }) // Nombre de la columna en la tabla de entrenadores
     usuario: Usuario;
 
     @Column({ type: 'varchar', length: 100 })
@@ -25,9 +22,9 @@ export class Entrenador {
     @Column({ type: 'varchar', length: 15, nullable: true })
     telefono?: string;
 
-    @Column({ type: 'varchar', length: 100, nullable: true })
-    especialidad?: string;
+    @Column({ type: 'varchar', length: 100 })
+    especialidad: string;
 
-    @Column({ type: 'int', nullable: true })
-    años_experiencia?: number;
+    @Column({ type: 'int' })
+    años_experiencia: number;
 }

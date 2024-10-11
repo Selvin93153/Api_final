@@ -1,10 +1,15 @@
-import { IsInt, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import {
+    IsInt,
+    IsNotEmpty,
+    IsOptional,
+    IsString,
+    MinLength,
+} from 'class-validator';
 
 export class CreateEntrenadorDto {
-
     @IsInt()
     @IsNotEmpty()
-    usuario_id: number;
+    usuario_id: number; // Referencia al ID del usuario
 
     @IsString()
     @IsNotEmpty()
@@ -23,10 +28,10 @@ export class CreateEntrenadorDto {
     telefono?: string;
 
     @IsString()
-    @IsOptional()
-    especialidad?: string;
+    @IsNotEmpty()
+    especialidad: string;
 
     @IsInt()
-    @IsOptional()
-    años_experiencia?: number;
+    @IsNotEmpty()
+    años_experiencia: number;
 }
