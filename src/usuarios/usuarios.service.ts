@@ -4,8 +4,8 @@ import { Repository } from 'typeorm';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
 import { Usuario } from './entities/usuario.entity';
-import { Rol } from 'src/roles/entities/roles.entity';  // Asegúrate de importar la entidad Rol
-import { Membresia } from 'src/membresias/entities/membresia.entity'; // Importa Membresia también
+import { Rol } from 'src/roles/entities/roles.entity';  
+import { Membresia } from 'src/membresias/entities/membresia.entity'; 
 import * as bcrypt from 'bcrypt';
 
 @Injectable()

@@ -34,5 +34,5 @@ export class CreateUsuarioDto {
     
     @IsInt()
     @IsOptional()
-    membresia_id?: number;// Asumiendo que es un ID de rol
+    membresia_id?: number;//  un ID de rol
 }

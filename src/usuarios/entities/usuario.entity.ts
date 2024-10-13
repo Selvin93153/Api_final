@@ -1,6 +1,6 @@
 import { Entrenador } from 'src/entrenadores/entities/entrenador.entity';
-import { Rol } from 'src/roles/entities/roles.entity';  // Asegúrate de importar la entidad Rol
-import { Membresia } from 'src/membresias/entities/membresia.entity'; // Importa Membresia también
+import { Rol } from 'src/roles/entities/roles.entity';  
+import { Membresia } from 'src/membresias/entities/membresia.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('usuarios')
@@ -36,5 +36,5 @@ export class Usuario {
     @OneToMany(() => Entrenador, (entrenador) => entrenador.usuario)
     entrenadores: Entrenador[];
 
-    // Otros campos pueden ir aquí según sea necesario
+    
 }
