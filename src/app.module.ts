@@ -9,6 +9,7 @@ import { EntrenadoresModule } from './entrenadores/entrenadores.module';
 import { AsignacionesModule } from './asignaciones/asignaciones.module';
 import { CategoriasModule } from './categorias/categorias.module';
 import { ControlPesoModule } from './control-peso/control-peso.module';
+import { TarjetaModule } from './tarjetas/tarjeta.module';
 
 
 @Module({
@@ -39,6 +40,7 @@ import { ControlPesoModule } from './control-peso/control-peso.module';
     CategoriasModule,
     RolesModule,
     ControlPesoModule,
+    TarjetaModule,
     CommonModule,
   ],
   controllers: [],

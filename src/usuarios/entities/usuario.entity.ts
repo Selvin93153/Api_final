@@ -3,6 +3,7 @@ import { Rol } from 'src/roles/entities/roles.entity';
 import { Membresia } from 'src/membresias/entities/membresia.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { ControlPeso } from 'src/control-peso/entities/control-peso.entity';
+import { Tarjeta } from 'src/tarjetas/entities/tarjeta.entity';
 
 @Entity('usuarios')
 export class Usuario {
@@ -39,6 +40,7 @@ export class Usuario {
 
     @OneToOne(() => ControlPeso, (controlPeso) => controlPeso.usuario)
   controlPeso: ControlPeso;
-
     
+  @OneToOne(() => Tarjeta, (tarjeta) => tarjeta.usuario)
+  tarjeta: Tarjeta; // Relación uno a uno con la tabla tarjetas
 }
