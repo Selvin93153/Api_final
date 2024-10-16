@@ -1,19 +1,20 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn, Column } from 'typeorm';
+import { Usuario } from 'src/usuarios/entities/usuario.entity';
+import { Entrenador } from 'src/entrenadores/entities/entrenador.entity';
 
 @Entity('asignaciones')
 export class Asignacion {
     @PrimaryGeneratedColumn()
     asignacion_id: number;
 
-    @Column()
-    cliente_id: number;
+    @ManyToOne(() => Usuario, (usuario) => usuario.asignaciones, { onDelete: 'CASCADE' })
+    @JoinColumn({ name: 'usuario_id' })
+    usuario: Usuario;
 
-    @Column()
-    entrenador_id: number;
+    @ManyToOne(() => Entrenador, (entrenador) => entrenador.asignaciones, { onDelete: 'CASCADE' })
+    @JoinColumn({ name: 'entrenador_id' })
+    entrenador: Entrenador;
 
     @Column({ type: 'date' })
     fecha_asignacion: Date;
-
-    @Column()
-    asignado_por: number;
 }

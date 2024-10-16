@@ -1,14 +1,12 @@
 import { Usuario } from 'src/usuarios/entities/usuario.entity';
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Asignacion } from 'src/asignaciones/entities/asignacion.entity';
 
 @Entity('entrenadores')
 export class Entrenador {
     @PrimaryGeneratedColumn()
     entrenador_id: number;
 
-    @ManyToOne(() => Usuario, { nullable: false })
-    @JoinColumn({ name: 'usuario_id' }) // Nombre de la columna en la tabla de entrenadores
-    usuario: Usuario;
 
     @Column({ type: 'varchar', length: 100 })
     nombre_completo: string;
@@ -27,4 +25,7 @@ export class Entrenador {
 
     @Column({ type: 'int' })
     años_experiencia: number;
+
+    @OneToMany(() => Asignacion, (asignacion) => asignacion.entrenador)
+    asignaciones: Asignacion[];
 }

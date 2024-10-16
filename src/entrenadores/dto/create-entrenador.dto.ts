@@ -7,10 +7,7 @@ import {
 } from 'class-validator';
 
 export class CreateEntrenadorDto {
-    @IsInt()
-    @IsNotEmpty()
-    usuario_id: number; // Referencia al ID del usuario
-
+   
     @IsString()
     @IsNotEmpty()
     nombre_completo: string;

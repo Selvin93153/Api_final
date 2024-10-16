@@ -7,7 +7,7 @@ import { Usuario } from 'src/usuarios/entities/usuario.entity';
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([Entrenador, Usuario]),
+        TypeOrmModule.forFeature([Entrenador]),
     ],
     controllers: [EntrenadoresController],
     providers: [EntrenadoresService],
