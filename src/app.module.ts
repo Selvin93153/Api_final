@@ -8,6 +8,7 @@ import { MembresiasModule } from './membresias/membresias.module';
 import { EntrenadoresModule } from './entrenadores/entrenadores.module';
 import { AsignacionesModule } from './asignaciones/asignaciones.module';
 import { CategoriasModule } from './categorias/categorias.module';
+import { ControlPesoModule } from './control-peso/control-peso.module';
 
 
 @Module({
@@ -37,6 +38,7 @@ import { CategoriasModule } from './categorias/categorias.module';
     AsignacionesModule,
     CategoriasModule,
     RolesModule,
+    ControlPesoModule,
     CommonModule,
   ],
   controllers: [],
