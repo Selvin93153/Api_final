@@ -2,9 +2,10 @@ import { Entrenador } from 'src/entrenadores/entities/entrenador.entity';
 import { Rol } from 'src/roles/entities/roles.entity';  
 import { Membresia } from 'src/membresias/entities/membresia.entity';
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { ControlPeso } from 'src/control-peso/entities/control-peso.entity';
+import { Control } from 'src/control/entities/control.entity';
 import { Tarjeta } from 'src/tarjetas/entities/tarjeta.entity';
 import { Asignacion } from 'src/asignaciones/entities/asignacion.entity';
+
 
 @Entity('usuarios')
 export class Usuario {
@@ -42,8 +43,7 @@ export class Usuario {
     @OneToOne(() => Tarjeta, (tarjeta) => tarjeta.usuario)
     tarjeta: Tarjeta;
 
-    @OneToOne(() => ControlPeso, (controlPeso) => controlPeso.usuario)
-  controlPeso: ControlPeso;
-
+    @OneToMany(() => Control, (control) => control.usuario)
+    controles: Control[];
   
 }

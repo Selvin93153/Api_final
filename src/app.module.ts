@@ -8,7 +8,7 @@ import { MembresiasModule } from './membresias/membresias.module';
 import { EntrenadoresModule } from './entrenadores/entrenadores.module';
 import { AsignacionesModule } from './asignaciones/asignaciones.module';
 import { CategoriasModule } from './categorias/categorias.module';
-import { ControlPesoModule } from './control-peso/control-peso.module';
+import { ControlModule } from './control/control.module';
 import { TarjetaModule } from './tarjetas/tarjeta.module';
 
 
@@ -39,7 +39,7 @@ import { TarjetaModule } from './tarjetas/tarjeta.module';
     AsignacionesModule,
     CategoriasModule,
     RolesModule,
-    ControlPesoModule,
+    ControlModule,
     TarjetaModule,
     CommonModule,
   ],
